@@ -25,3 +25,31 @@ curl -X POST http://localhost:3000/wake \
   -H "Content-Type: application/json" \
   -d '{"mac":"AA:BB:CC:DD:EE:FF"}'
 ```
+
+## Device Management
+
+Three additional endpoints are available to manage devices in memory. A device
+requires a `name` and `mac` address. An optional `ip` address can also be
+provided.
+
+### Add a Device
+
+```bash
+curl -X POST http://localhost:3000/device \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Desktop","mac":"AA:BB:CC:DD:EE:FF","ip":"192.168.0.10"}'
+```
+
+### Update a Device
+
+```bash
+curl -X PUT http://localhost:3000/device/Desktop \
+  -H "Content-Type: application/json" \
+  -d '{"mac":"AA:BB:CC:DD:EE:11","ip":"192.168.0.11"}'
+```
+
+### Delete a Device
+
+```bash
+curl -X DELETE http://localhost:3000/device/Desktop
+```
