@@ -14,6 +14,10 @@ npm install
 npm start
 ```
 
+The server expects a MongoDB instance running locally at
+`mongodb://localhost:27017/wol`. You can override this by setting the
+`MONGODB_URI` environment variable before starting the server.
+
 Server listens on port `3000` by default.
 
 ## Usage
@@ -28,9 +32,9 @@ curl -X POST http://localhost:3000/wake \
 
 ## Device Management
 
-Three additional endpoints are available to manage devices in memory. A device
-requires a `name` and `mac` address. An optional `ip` address can also be
-provided.
+Three additional endpoints are available to manage devices. Device information
+is persisted in a MongoDB database. A device requires a `name` and `mac`
+address. An optional `ip` address can also be provided.
 
 ### Add a Device
 
